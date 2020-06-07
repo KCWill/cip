@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { NavLink } from 'react-router-dom';
-import { getLines } from '../../apiCalls';
+import { fetchLines, fetchStations, fetchDirections } from '../../apiCalls';
 
 
 class LineChooser extends Component{
@@ -8,26 +8,39 @@ class LineChooser extends Component{
     super(props);
     this.state = {
       lines: [],
+      stations: [],
+      directions: [],
     };
   }
 
   getAvailableLines = () => {
     const linesToDisplay = this.state.lines.map((line, index) => {
-            return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${line.shortName}`}>{line.name}</NavLink>;
+            return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${line.id}`}>{`${line.shortName} - ${line.name} `}</NavLink>;
           })
     return linesToDisplay
   }
 
   getStationsOnLine = () => {
-    const stationsOnLine = this.state.lines.map((line, index) => {
-      return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${line.shortName}`}>{line.name}</NavLink>;
+    const stationsOnLine = this.state.stations.map((station, index) => {
+      return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${station.id}`}>{station.name}</NavLink>;
     })
     return stationsOnLine
   }
 
+  getMetroDirection = () => {
+    const trainDirection = this.state.directions.map((direction, index)=>{
+    return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${this.props.stationId}/${direction.way}`}>{`Going towards ${direction.name}`}</NavLink>
+    })
+    return trainDirection
+  }
+
   componentDidMount = async () => {
-    const lines = await getLines();
+    const lines = await fetchLines();
     this.setState({...this.state, lines});
+    const stations = await fetchStations(this.props.lineId);
+    this.setState({...this.state, stations});
+    const directions = await fetchDirections(this.props.lineId);
+    this.setState({...this.state, directions})
   }
 
   render() {
@@ -35,7 +48,13 @@ class LineChooser extends Component{
       <section>
         <h2>Line Chooser</h2>
         <h3>{this.props.restaurantId}</h3>
+        {this.state.lines && this.getAvailableLines()}
+        <br/>
+        <br/>
         {this.props.lineId && this.getStationsOnLine()}
+        <br/>
+        <br/>
+        {this.props.stationId && this.getMetroDirection()}
       </section>
     )
   }

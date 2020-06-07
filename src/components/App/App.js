@@ -40,8 +40,19 @@ class App extends Component {
                 }}/>
                 <Route exact path='/navigate/:restaurantId/:lineId' render={({ match }) => {
                     const { restaurantId, lineId} = match.params;
-                    return <LineChooser restaurantId={restaurantId} lineId={lineId} />
+                    return <LineChooser restaurantId={restaurantId} lineId={lineId}/>
                 }}/>
+                <Route exact path='/navigate/:restaurantId/:lineId/:stationId' render={({ match }) => {
+                    const { restaurantId, lineId, stationId} = match.params;
+                    return <LineChooser restaurantId={restaurantId} lineId={lineId} stationId={stationId}/>
+                }}/>
+                <Route 
+                exact path='/navigate/:restaurantId/:lineId/:stationId/:directionId'
+                render={({ match }) => {
+                    const { restaurantId, lineId, stationId, directionId} = match.params;
+                    return <Instructions restaurantId={restaurantId} lineId={lineId} stationId={stationId} directionId={directionId}/>
+                }}/>
+
             </main>
         )
     }
