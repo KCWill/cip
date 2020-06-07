@@ -6,6 +6,7 @@ import Instructions from '../Instructions/Instructions.js';
 import RestaurantDetails from '../RestaurantDetails/RestaurantDetails.js';
 import LineChooser from '../LineChooser/LineChooser.js';
 import './App.css';
+import { getLines } from '../../apiCalls.js';
 
 class App extends Component {
     constructor() {
@@ -13,10 +14,6 @@ class App extends Component {
         this.state = {
 
         }
-    }
-
-    componentDidMount(){
-
     }
 
     render () {
@@ -33,9 +30,18 @@ class App extends Component {
                 </header>
                 <Route exact path='/' component={Welcome} />
                 <Route path='/overview' component={Overview} />
-                <Route path='/details/:restaurantId' component={RestaurantDetails} />
-                <Route path='/navigate/:restaurantId' component={LineChooser} />
-                <Route path='/navigate/:restaurantId/:originStation' component={Instructions} />
+                <Route path='/details/:restaurantId' render={({ match }) => {
+                    const { restaurantId } = match.params;
+                    return <RestaurantDetails restaurantId={restaurantId}/>
+                }} />
+                <Route exact path='/navigate/:restaurantId' render={({ match }) => {
+                    const { restaurantId } = match.params;
+                    return <LineChooser restaurantId={restaurantId} />
+                }}/>
+                <Route exact path='/navigate/:restaurantId/:lineId' render={({ match }) => {
+                    const { restaurantId, lineId} = match.params;
+                    return <LineChooser restaurantId={restaurantId} lineId={lineId} />
+                }}/>
             </main>
         )
     }
