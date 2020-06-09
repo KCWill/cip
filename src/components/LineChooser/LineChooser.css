@@ -1,0 +1,47 @@
+.metro-graphic {
+  margin: 10px;
+  width: 85%;
+}
+
+.directions {
+  display: flex;
+  justify-content: center;
+  margin: 0px 100px 0px 100px;
+}
+
+.line-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+.chooser-column {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 350px;
+}
+
+.station-btn {
+  background-color: white;
+  border: 1px solid #0072BB;
+  border-radius: 3px;
+  color: #0072BB;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 5px;
+  margin: 3px;
+  text-decoration: none;
+}
+
+.station-btn:hover {
+  background-color: #0072BB;
+  color: white;
+}

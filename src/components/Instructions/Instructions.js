@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchNextArrivals, fetchStationData } from '../../apiCalls.js';
+import './Instructions.css'
 
 class Instructions extends Component { 
   constructor(){
@@ -52,12 +53,12 @@ class Instructions extends Component {
 
   render() {
     return(
-    <section>
-      <h2>Directions to Chipotle {this.props.displayRestaurantName(this.props.restaurantId)}</h2>
+    <section className='next-trains'>
+      <h2>Next Trains Leaving for Chipotle {this.props.displayRestaurantName(this.props.restaurantId)}</h2>
       {this.state.station.length === 1 && <p>{`The next trains arriving at ${this.state.station[0].name}:`}</p>}
       {this.state.station.length === 1 && this.nextTrainsArriving()}
-      {!this.state.favorited && <button type='submit' onClick={this.saveStation}>Favorite This Station</button>}
-      {this.state.favorited && <button type='submit' onClick={this.removeStation}>Remove Station from Favorites</button>}
+      {!this.state.favorited && <button type='submit' className='favorite-btn' onClick={this.saveStation}>Favorite This Station</button>}
+      {this.state.favorited && <button type='submit' className='favorite-btn' onClick={this.removeStation}>Remove Station from Favorites</button>}
       {!this.state.nextArrivals.length && <h3>Chargement en cours...</h3>}
     </section>
     )

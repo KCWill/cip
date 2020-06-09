@@ -49,14 +49,23 @@ class App extends Component {
     return (
       <main className='app'>
         <header className='top-bar'>
-          <h1>Le Chipôtlé</h1>
-          <NavLink to='/savedstations' className='saved-trips-btn'>
-            View Saved Trips
+          <h1>le Chipôtlé</h1>
+          <hr />
+          <section className='nav-container'>
+          <NavLink exact to='/' className='nav-btn' activeClassName='nav-btn-active'>
+            Home
           </NavLink>
-          <NavLink to='/' className='home-button'>
-            Take Me Home
+           | 
+          <NavLink to='/overview' className='nav-btn' activeClassName='nav-btn-active'>
+            Locations
           </NavLink>
+           | 
+          <NavLink to='/savedstations' className='nav-btn' activeClassName='nav-btn-active'>
+            Saved Trips
+          </NavLink>
+          </section>
         </header>
+        <section className='main-content'>
         <Route exact path='/' component={Welcome} />
         <Route path='/overview' component={Overview} />
         <Route path='/details/:restaurantId' render={({ match }) => {
@@ -99,6 +108,7 @@ class App extends Component {
             displayRestaurantName={this.displayRestaurantName}
           />}
         />
+        </section>
       </main>
     )
   }

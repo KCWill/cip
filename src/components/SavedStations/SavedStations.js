@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './SavedStations.css';
 
 class SavedStations extends Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class SavedStations extends Component {
   displayFavorites = (savedStations) => {
     const displayStations = savedStations.map((station, index) => { 
       return (
-        <li key={index}>
-          <NavLink to={`/navigate/${station.restaurantId}/${station.lineId}/${station.stationId}/${station.directionId}`}>
+        <li className='list-stations' key={index}>
+          <NavLink className='station-btn' to={`/navigate/${station.restaurantId}/${station.lineId}/${station.stationId}/${station.directionId}`}>
             {`${station.stationName} - Going to Chipotle ${this.props.displayRestaurantName(station.restaurantId)}`} 
           </NavLink>
         </li>

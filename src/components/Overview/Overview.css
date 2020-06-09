@@ -1,0 +1,36 @@
+
+.restaurants-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.restaurant-overview {
+  align-items: center;
+  background-color: white;
+  border: 1px solid #0072BB;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 5px;
+  width: 33%;
+}
+
+.details-btn {
+  border: 1px solid #0072BB;
+  border-radius: 3px;
+  color: #0072BB;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.details-btn:hover {
+  background-color: #0072BB;
+  color: white;
+}

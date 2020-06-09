@@ -1,0 +1,20 @@
+.station-btn {
+  background-color: white;
+  border: 1px solid #0072BB;
+  border-radius: 3px;
+  color: #0072BB;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 5px;
+  margin: 3px;
+  text-decoration: none;
+}
+
+.station-btn:hover {
+  background-color: #0072BB;
+  color: white;
+}
+
+.list-stations {
+  list-style-type: none;
+}
