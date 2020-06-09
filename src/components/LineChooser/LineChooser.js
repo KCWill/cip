@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import { fetchLines, fetchStations, fetchDirections } from '../../apiCalls';
+import './LineChooser.css';
+import restaurantData from '../../RestaurantData.js';
 
 
 class LineChooser extends Component{
@@ -44,16 +46,33 @@ class LineChooser extends Component{
   render() {
     return(
       <section>
-        <h2>Line Chooser</h2>
-        <h3>{this.props.restaurantId}</h3>
-        {!this.state.lines.length && <h2>Chargement en cours...</h2>}
-        {this.state.lines && this.getAvailableLines()}
-        <br/>
-        <br/>
-        {this.props.lineId && this.getStationsOnLine()}
-        <br/>
-        <br/>
-        {this.props.stationId && this.getMetroDirection()}
+        <h2>Métro Station Selector</h2>
+        <h3>
+          {restaurantData[this.props.restaurantId].name}
+        </h3>
+        <p className='directions'>
+          Use the map below to find a station near the Chipotle marked with a red star. Locate your nearest station with a line that goes to the Chipotle's station. Finally, choose the direction by looking at the final station on the given line. (e.g. To go to Bir-Hakeim from Raspail, click line M6, then choose Raspail, and finally choose 'Going towards Charles de Gaule Etoile.')
+        </p>
+        <section className='line-selector-container'>
+          <img className='metro-graphic' src={restaurantData[this.props.restaurantId].metroURL} />
+          <section className='line-selector'>
+            {!this.state.lines.length && <h2>Chargement en cours...</h2>}
+            <section className='chooser-column'>
+              <h3>
+                Métro Lines
+              </h3>
+              {this.state.lines && this.getAvailableLines()}
+            </section>
+            <section className='chooser-column'>
+              {this.props.lineId && <h3>Stations on Line</h3>}
+              {this.props.lineId && this.getStationsOnLine()}
+            </section>
+            <section className='chooser-column'>
+              {this.props.stationId && <h3>Choose Your Direction</h3>}
+              {this.props.stationId && this.getMetroDirection()}
+            </section>
+          </section>
+        </section>
       </section>
     )
   }

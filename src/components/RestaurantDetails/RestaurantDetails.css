@@ -1,0 +1,32 @@
+img {
+  margin: 10px;
+  width: 350px;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navigate-btn {
+  background-color: white;
+  border: 1px solid #0072BB;
+  border-radius: 3px;
+  color: #0072BB;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.navigate-btn:hover {
+  background-color: #0072BB;
+  color: white;
+}

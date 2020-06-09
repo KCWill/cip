@@ -1,7 +1,7 @@
 .app { 
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
@@ -36,37 +36,34 @@ hr {
 }
 
 .main-content { 
+  align-items: center;
   background-color: #AFD4FF;
-  width: 90%;
+  border-radius: 7px;
   display: flex; 
   flex-direction: column;
   font-family: 'Fira Sans', sans-serif;
-  align-items: center;
   justify-content: center;
-  border-radius: 7px;
   margin-top:60px;
   padding: 20px;
+  width: 90%;
 }
 .nav-container {
+  color: #0072BB;
   display: flex;
   justify-content: space-around;
-  width: 400px;
   margin-top: 10px;
-  color: #0072BB;
+  width: 400px;
 }
 
 .nav-btn {
+  color: #0072BB;
   cursor: pointer;
   font-family: 'Fira Sans', sans-serif;
-  color: #0072BB;
   text-decoration: none;
 }
 
 .nav-btn-active {
-  cursor: pointer;
-  font-family: 'Fira Sans', sans-serif;
   color: #007BC7;
-  text-decoration: none;
   border-bottom: 1px solid #007BC7;
 }
 
