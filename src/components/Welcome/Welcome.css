@@ -1,0 +1,11 @@
+.welcome-message {
+  color: #00243B;
+  width: 80%;
+}
+
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
