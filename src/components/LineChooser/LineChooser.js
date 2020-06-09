@@ -36,11 +36,9 @@ class LineChooser extends Component{
 
   componentDidMount = async () => {
     const lines = await fetchLines();
-    this.setState({...this.state, lines});
     const stations = await fetchStations(this.props.lineId);
-    this.setState({...this.state, stations});
     const directions = await fetchDirections(this.props.lineId);
-    this.setState({...this.state, directions})
+    this.setState({...this.state, lines, stations, directions})
   }
 
   render() {
@@ -48,6 +46,7 @@ class LineChooser extends Component{
       <section>
         <h2>Line Chooser</h2>
         <h3>{this.props.restaurantId}</h3>
+        {!this.state.lines.length && <h2>Chargement en cours...</h2>}
         {this.state.lines && this.getAvailableLines()}
         <br/>
         <br/>
