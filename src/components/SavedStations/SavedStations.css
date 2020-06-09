@@ -17,4 +17,6 @@
 
 .list-stations {
   list-style-type: none;
+  padding: 5px;
+  margin: 5px;
 }

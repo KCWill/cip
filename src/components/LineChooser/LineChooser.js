@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { fetchLines, fetchStations, fetchDirections } from '../../apiCalls';
 import './LineChooser.css';
 import restaurantData from '../../RestaurantData.js';
+import PropTypes from 'prop-types';
 
 
-class LineChooser extends Component{
+class LineChooser extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -54,7 +55,7 @@ class LineChooser extends Component{
           Use the map below to find a station near the Chipotle marked with a red star. Locate your nearest station with a line that goes to the Chipotle's station. Finally, choose the direction by looking at the final station on the given line. (e.g. To go to Bir-Hakeim from Raspail, click line M6, then choose Raspail, and finally choose 'Going towards Charles de Gaule Etoile.')
         </p>
         <section className='line-selector-container'>
-          <img className='metro-graphic' src={restaurantData[this.props.restaurantId].metroURL} />
+          <img alt='Paris Metro Map'className='metro-graphic' src={restaurantData[this.props.restaurantId].metroURL} />
           <section className='line-selector'>
             {!this.state.lines.length && <h2>Chargement en cours...</h2>}
             <section className='chooser-column'>
@@ -78,3 +79,9 @@ class LineChooser extends Component{
   }
 }
 export default LineChooser;
+
+LineChooser.propTypes = {
+  restaurantId: PropTypes.string,
+  lineId: PropTypes.string,
+  stationId: PropTypes.string,
+}

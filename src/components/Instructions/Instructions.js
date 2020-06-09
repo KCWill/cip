@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { fetchNextArrivals, fetchStationData } from '../../apiCalls.js';
-import './Instructions.css'
+import './Instructions.css';
+import PropTypes from 'prop-types';
 
 class Instructions extends Component { 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       nextArrivals: [],
       station: [],
@@ -66,3 +67,14 @@ class Instructions extends Component {
 }
 
 export default Instructions;
+
+Instructions.propTypes = {
+  restaurantId: PropTypes.string,
+  lineId: PropTypes.string,
+  stationId: PropTypes.string,
+  directionId: PropTypes.string,
+  addSavedStation: PropTypes.func,
+  removeSavedStation: PropTypes.func,
+  displayRestaurantName: PropTypes.func,
+  favorites: PropTypes.arrayOf(PropTypes.object)
+}
