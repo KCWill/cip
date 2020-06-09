@@ -19,7 +19,7 @@ const SavedStations = (props) => {
 
   return(
     <section>
-      <h2>Your Saved Stations</h2>
+      <h2>Your Saved Trips</h2>
       <ul>
         {displayFavorites(props.savedStations)}
       </ul>
