@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Welcome from '../Welcome/Welcome.js';
 import Overview from '../Overview/Overview.js';
 import Instructions from '../Instructions/Instructions.js';
@@ -7,7 +7,7 @@ import RestaurantDetails from '../RestaurantDetails/RestaurantDetails.js';
 import LineChooser from '../LineChooser/LineChooser.js';
 import SavedStations from '../SavedStations/SavedStations.js';
 import './App.css';
-import { getLines } from '../../apiCalls.js';
+import restaurantData from '../../RestaurantData.js';
 
 class App extends Component {
   constructor() {
@@ -36,13 +36,7 @@ class App extends Component {
   }
 
   displayRestaurantName = (restaurantId) => {
-    if (restaurantId === 'beaugrenelle'){
-      return 'Beaugrenelle'
-    } else if (restaurantId === 'stGermain'){
-      return 'St. Germain'
-    } else {
-      return 'Montmartre'
-    }
+    return restaurantData[restaurantId].name
   }
 
   render () {
@@ -96,7 +90,6 @@ class App extends Component {
             directionId={directionId} 
             addSavedStation={this.addSavedStation}
             removeSavedStation={this.removeSavedStation}
-            restaurantId={restaurantId}
             displayRestaurantName={this.displayRestaurantName}
             favorites={this.state.favorites}
             />

@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './RestaurantDetails.css';
 import restaurantData from '../../RestaurantData.js';
-
-
+import PropTypes from 'prop-types';
 
 const RestaurantDetails = (props) => {
-
   const chooseRestaurant = () => {
     return (
       <section className='restaurant-container'>
         <section className='images'>
-          <img src={restaurantData[props.restaurantId].imageURL} />
+          <img alt={`${restaurantData[props.restaurantId].name} view`} src={restaurantData[props.restaurantId].imageURL} />
         </section>
         <section className='details'>
           <h2>
@@ -39,3 +37,7 @@ const RestaurantDetails = (props) => {
 }
 
 export default RestaurantDetails;
+
+RestaurantDetails.propTypes = {
+  restaurantId: PropTypes.string,
+}

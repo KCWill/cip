@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './SavedStations.css';
+import PropTypes from 'prop-types';
 
-class SavedStations extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  displayFavorites = (savedStations) => {
+const SavedStations = (props) => {
+  const displayFavorites = (savedStations) => {
     const displayStations = savedStations.map((station, index) => { 
       return (
         <li className='list-stations' key={index}>
           <NavLink className='station-btn' to={`/navigate/${station.restaurantId}/${station.lineId}/${station.stationId}/${station.directionId}`}>
-            {`${station.stationName} - Going to Chipotle ${this.props.displayRestaurantName(station.restaurantId)}`} 
+            {`${station.stationName} - Going to Chipotle ${props.displayRestaurantName(station.restaurantId)}`} 
           </NavLink>
         </li>
       )
@@ -21,18 +17,20 @@ class SavedStations extends Component {
     return displayStations
   }
 
-
-  render() {
-    return(
-      <section>
-        <h2>Your Saved Stations</h2>
-        <ul>
-          {this.displayFavorites(this.props.savedStations)}
-        </ul>
-        {!this.props.savedStations.length && <h3>Add some stations!</h3>}
-      </section>
-    )
-  }
+  return(
+    <section>
+      <h2>Your Saved Stations</h2>
+      <ul>
+        {displayFavorites(props.savedStations)}
+      </ul>
+      {!props.savedStations.length && <h3>Add some stations!</h3>}
+    </section>
+  )
 }
 
 export default SavedStations;
+
+SavedStations.propTypes = {
+  savedStations: PropTypes.arrayOf(PropTypes.object),
+  displayRestaurantName: PropTypes.func,
+}
