@@ -10,10 +10,10 @@ const RestaurantDetails = (props) => {
   const chooseRestaurant = () => {
     return (
       <section className='restaurant-container'>
-        <section classname='images'>
+        <section className='images'>
           <img src={restaurantData[props.restaurantId].imageURL} />
         </section>
-        <section classname='details'>
+        <section className='details'>
           <h2>
             {`Chipotle ${restaurantData[props.restaurantId].name}`}
           </h2>

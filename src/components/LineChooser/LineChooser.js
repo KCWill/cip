@@ -17,21 +17,21 @@ class LineChooser extends Component{
 
   getAvailableLines = () => {
     const linesToDisplay = this.state.lines.map((line, index) => {
-            return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${line.id}`}>{`${line.shortName} - ${line.name} `}</NavLink>;
+            return <NavLink className='station-btn' key={index} to={`/navigate/${this.props.restaurantId}/${line.id}`}>{`${line.shortName} - ${line.name} `}</NavLink>;
           })
     return linesToDisplay
   }
 
   getStationsOnLine = () => {
     const stationsOnLine = this.state.stations.map((station, index) => {
-      return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${station.id}`}>{station.name}</NavLink>;
+      return <NavLink className='station-btn' key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${station.id}`}>{station.name}</NavLink>;
     })
     return stationsOnLine
   }
 
   getMetroDirection = () => {
     const trainDirection = this.state.directions.map((direction, index)=>{
-    return <NavLink key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${this.props.stationId}/${direction.way}`}>{`Going towards ${direction.name}`}</NavLink>
+    return <NavLink className='station-btn' key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${this.props.stationId}/${direction.way}`}>{`Going towards ${direction.name}`}</NavLink>
     })
     return trainDirection
   }
