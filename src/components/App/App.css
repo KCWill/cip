@@ -21,6 +21,13 @@ h2 {
   margin: 0px;
 }
 
+h3 {
+  color: #0072BB;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+}
+
 hr {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(	0, 114, 187, 1), rgba(0, 0, 0, 0));
   border: 0;
