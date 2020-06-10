@@ -70,7 +70,7 @@ class LineChooser extends Component {
           Use the map below to find a station near the Chipotle marked with a red star. Select a numbered line that goes from your location to a station near the Chipotle. Do not choose a line that is labeled as a single letter, as it is a RER train which has different tickets. Select a station near your location. Finally, choose the direction by looking at the final station on the given line. (e.g. To go to Bir-Hakeim from Raspail, click line M6, select Raspail, and finally select 'Going towards Charles de Gaule Etoile.')
         </p>
         <section className='line-selector-container'>
-          <img alt='Paris Metro Map'className='metro-graphic' src={restaurantData[this.props.restaurantId].metroURL} />
+          <img alt='Paris Metro Map' className='metro-graphic' src={restaurantData[this.props.restaurantId].metroURL} />
           {!this.state.lines.length && <h2>Loading...</h2>}
           <section className='line-selector'>
             <section className='chooser-column'>

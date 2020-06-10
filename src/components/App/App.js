@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, BrowserRouter } from 'react-router-dom';
 import Welcome from '../Welcome/Welcome.js';
 import Overview from '../Overview/Overview.js';
 import Instructions from '../Instructions/Instructions.js';
@@ -45,19 +45,19 @@ class App extends Component {
         <header className='top-bar'>
           <h1>le Chipôtlé</h1>
           <hr />
-          <section className='nav-container'>
-          <NavLink exact to='/' className='nav-btn' activeClassName='nav-btn-active'>
-            Home
-          </NavLink>
-           | 
-          <NavLink to='/overview' className='nav-btn' activeClassName='nav-btn-active'>
-            Locations
-          </NavLink>
-           | 
-          <NavLink to='/savedstations' className='nav-btn' activeClassName='nav-btn-active'>
-            Saved Trips
-          </NavLink>
-          </section>
+            <section className='nav-container'>
+            <NavLink exact to='/' className='nav-btn' activeClassName='nav-btn-active'>
+              Home
+            </NavLink>
+            | 
+            <NavLink to='/overview' className='nav-btn' activeClassName='nav-btn-active'>
+              Locations
+            </NavLink>
+            | 
+            <NavLink to='/savedstations' className='nav-btn' activeClassName='nav-btn-active'>
+              Saved Trips
+            </NavLink>
+            </section>
         </header>
         <section className='main-content'>
         <Route exact path='/' component={Welcome} />
@@ -68,17 +68,24 @@ class App extends Component {
         }} />
         <Route exact path='/navigate/:restaurantId' render={({ match }) => {
           const { restaurantId } = match.params;
-          return <LineChooser restaurantId={restaurantId} />
+          return <LineChooser 
+          restaurantId={restaurantId} 
+          />
         }}/>
         <Route exact path='/navigate/:restaurantId/:lineId' render={({ match }) => {
           const { restaurantId, lineId} = match.params;
           return <LineChooser 
-          key={window.location.pathname} restaurantId={restaurantId} 
+          key={window.location.pathname} 
+          restaurantId={restaurantId} 
           lineId={lineId}/>
         }}/>
         <Route exact path='/navigate/:restaurantId/:lineId/:stationId' render={({ match }) => {
           const { restaurantId, lineId, stationId} = match.params;
-          return <LineChooser key={window.location.pathname} restaurantId={restaurantId} lineId={lineId} stationId={stationId}/>
+          return <LineChooser 
+          key={window.location.pathname} 
+          restaurantId={restaurantId} 
+          lineId={lineId} 
+          stationId={stationId}/>
         }}/>
         <Route 
           exact path='/navigate/:restaurantId/:lineId/:stationId/:directionId'
