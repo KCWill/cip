@@ -35,4 +35,23 @@ describe('App', () => {
     expect(chipotlesInParis).toBeInTheDocument();
   })
 
+  it.skip('Should be able to go through app and add a favorite station', async () => {
+    const { getByText, getAllByText } = render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    )
+    const locations = getByText('Locations');
+    fireEvent.click(locations);
+    const viewDetails = getAllByText('View Details');
+    fireEvent.click(viewDetails[1]);
+    const findTrain = getAllByText('Find the Next Train to this Location!');
+    fireEvent.click(findTrain);
+    const m5 = await waitFor(()=>getByText('M5', {exact: false}));
+    fireEvent.click(m5);
+    const hoche = await waitFor(()=>getByText('Hoche'));
+    fireEvent.click(hoche);
+    const place = await waitFor(()=>getByText('Going towards Place', {exact: false}));
+    fireEvent.click(place);
+  })
 })
