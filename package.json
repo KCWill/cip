@@ -2,7 +2,7 @@
   "name": "cip",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://KCWill.github.io/cip"
+  "homepage": "http://KCWill.github.io/cip",
   "dependencies": {
     "@testing-library/user-event": "^7.2.1",
     "prop-types": "^15.7.2",
