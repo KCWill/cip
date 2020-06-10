@@ -16,5 +16,5 @@ Le Chipôtlé is an app that lets users read reviews about the three Chipotles i
 
 ## Composition
 
-<img width="700px" alt="" ">
+<img width="700px" alt="Chipotle Composition" src='./public/images/chipotleComp.gif'>
 
