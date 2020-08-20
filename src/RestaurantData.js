@@ -10,7 +10,7 @@ const restaurantData = {
   beaugrenelle: {
     name: 'Beaugrenelle',
     address: '2 Rue Linois, 75015 Paris, France',
-    imageURL: `/images/beaugrenelle2.jpg`,
+    imageURL: '/images/beaugrenelle2.jpg',
     description: `This Chipotle is located in the Beaugrenelle Mall and is hands-down the best Chipotle in Paris. It has something absolutely unheard of in France: A SODA FOUNTAIN. Yes, this Chipotle gives you a soda cup that you can refill to your heart's desire. No lukewarm cans of soda! Fill that cup to the BRIM with ice! AMERICA. The dining room is also the biggest of all other locations and has a beautiful view onto the Seine river right outside. Oh, it's also a ten minute walk from the Eiffel Tower. Try walking outside to the middle of the Grenelle bridge, there you can descend steps and walk on the Île aux Cygnes (Island of Swans) towards the Eiffel tower. It's an island in the middle of the Seine lined with trees; it's truly a magical experience and I did it every single Saturday. Go here if at all possible!  5 out of 5 stars.`,
     nearbyLines: [],
     metroURL: '/images/beaugrenelleMetro.png'
