@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, BrowserRouter } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Welcome from '../Welcome/Welcome.js';
 import Overview from '../Overview/Overview.js';
 import Instructions from '../Instructions/Instructions.js';
