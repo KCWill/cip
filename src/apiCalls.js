@@ -1,6 +1,6 @@
 export const fetchLines = async () => {
   try {
-    const response = await fetch('http://restratpws.azurewebsites.net/api/lines/metro');
+    const response = await fetch('https://restratpws.azurewebsites.net/api/lines/metro');
     if(!response.ok) {
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
@@ -15,7 +15,7 @@ export const fetchLines = async () => {
 
 export const fetchStations = async (lineId) => {
   try {
-    const response = await fetch(`http://restratpws.azurewebsites.net/api/stations/${lineId}`);
+    const response = await fetch(`https://restratpws.azurewebsites.net/api/stations/${lineId}`);
     if(!response.ok) {
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
@@ -30,7 +30,7 @@ export const fetchStations = async (lineId) => {
 
 export const fetchDirections = async (directionId) => {
   try {
-    const response = await fetch(`http://restratpws.azurewebsites.net/api/directions/${directionId}`);
+    const response = await fetch(`https://restratpws.azurewebsites.net/api/directions/${directionId}`);
     if(!response.ok){
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
@@ -45,7 +45,7 @@ export const fetchDirections = async (directionId) => {
 
 export const fetchNextArrivals = async (lineId, stationId, directionId) => {
   try {
-    const response = await fetch(`http://restratpws.azurewebsites.net/api/Missions/${lineId}/from/${stationId}/way/${directionId}`);
+    const response = await fetch(`https://restratpws.azurewebsites.net/api/Missions/${lineId}/from/${stationId}/way/${directionId}`);
     if(!response.ok){
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
