@@ -9,7 +9,7 @@ const RestaurantDetails = (props) => {
     return (
       <section className='restaurant-container'>
         <section className='images'>
-          <img alt={`${restaurantData[props.restaurantId].name} view`} src={restaurantData[props.restaurantId].imageURL} />
+          <img alt={`${restaurantData[props.restaurantId].name} view`} src={process.env.PUBLIC_URL + restaurantData[props.restaurantId].imageURL} />
         </section>
         <section className='details'>
           <h2>
