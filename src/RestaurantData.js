@@ -19,7 +19,7 @@ const restaurantData = {
     name: 'Montmartre',
     address: '18-20 Boulevard Montmartre, 75009 Paris, France',
     imageURL: `/images/montmartre1.png`,
-    description: `This was the first Chipotle I went to in Paris. It's located in an area of Paris that is known for its art and homeplace of Amélie! It's just a few blocks from Palais Garnier (Fantom of the Opera, anyone?). There are quite a few American fast-food chains around this location and it kind of takes you out of the Parisian experience. When I went it was the middle of June and I was thirsty, so I got two cans of Coca Light (Diet Coke). No regrets there. This location has two floors with a dining room on the second floor. 4 out of 5 stars.`,
+    description: `This was the first Chipotle I went to in Paris. It's located in an area of Paris that is known for its art and homeplace of Amélie! It's just a few blocks from Palais Garnier (Phantom of the Opera, anyone?). There are quite a few American fast-food chains around this location and it kind of takes you out of the Parisian experience. When I went it was the middle of June and I was thirsty, so I got two cans of Coca Light (Diet Coke). No regrets there. This location has two floors with a dining room on the second floor. 4 out of 5 stars.`,
     nearbyLines: [],
     metroURL: '/images/montmartreMetro.png'
   }
