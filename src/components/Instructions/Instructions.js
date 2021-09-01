@@ -32,7 +32,7 @@ class Instructions extends Component {
   saveStation = () => {
     const station = this.state.stations.filter((station) => {
       return station.slug === this.props.stationId})
-    this.props.addSavedStation(this.props.lineId, station, this.props.stationId, this.props.directionId, this.props.restaurantId)
+    this.props.addSavedStation(this.props.lineId, station[0].name, station[0].name, this.props.directionId, this.props.restaurantId)
     this.setState({...this.state, favorited: true})
   }
 
