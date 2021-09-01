@@ -18,14 +18,14 @@ class LineChooser extends Component {
 
   getAvailableLines = () => {
     const linesToDisplay = this.state.lines.map((line, index) => {
-            return <NavLink className='station-btn' key={index} exact to={`/navigate/${this.props.restaurantId}/${line.id}`}>{`${line.shortName} - ${line.name} `}</NavLink>;
+            return <NavLink className='station-btn' key={index} exact to={`/navigate/${this.props.restaurantId}/${line.code}`}>{`Métro ${line.code} `}</NavLink>;
           })
     return linesToDisplay
   }
 
   getStationsOnLine = () => {
     const stationsOnLine = this.state.stations.map((station, index) => {
-      return <NavLink className='station-btn' key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${station.id}`}>{station.name}</NavLink>;
+      return <NavLink className='station-btn' key={index} to={`/navigate/${this.props.restaurantId}/${this.props.lineId}/${station.slug}`}>{station.name}</NavLink>;
     })
     return stationsOnLine
   }
@@ -39,23 +39,32 @@ class LineChooser extends Component {
 
   displayLineShortName = (lineId) => {
     const lineName = this.state.lines.filter((line) => {
-      return line.id === lineId
+      return line.code === lineId
     })
-    return lineName[0].shortName
+    return lineName.code
   }
 
   displayStationName = (stationId) => {
     const stationName = this.state.stations.filter((station) => {
-      return station.id === stationId
+      return station.slug === stationId
     })
     return stationName[0].name
   }
 
   componentDidMount = async () => {
-    const lines = await fetchLines();
-    const stations = await fetchStations(this.props.lineId);
-    const directions = await fetchDirections(this.props.lineId);
-    this.setState({...this.state, lines, stations, directions})
+    let lines = await fetchLines();
+    lines = lines.result.metros;
+    this.setState({...this.state, lines})
+    if(this.props.lineId){
+      let stations = await fetchStations(this.props.lineId);
+      stations = stations.result.stations;
+      this.setState({...this.state, stations})
+    }
+    if(this.state.stations.length && this.props.lineId){
+      let directions = await fetchDirections(this.props.lineId);
+      directions = directions.result.destinations;
+      this.setState({...this.state, directions})
+    }
   }
 
 
@@ -80,7 +89,7 @@ class LineChooser extends Component {
               {this.state.lines && this.getAvailableLines()}
             </section>
             <section className='chooser-column'>
-              {this.props.lineId && !!this.state.lines.length && <h3>{`Stations on Line ${this.displayLineShortName(this.props.lineId)}`}</h3>}
+              {this.props.lineId && !!this.state.lines.length && <h3>{`Stations on Line ${this.props.lineId}`}</h3>}
               {this.props.lineId && this.getStationsOnLine()}
             </section>
             <section className='chooser-column'>
