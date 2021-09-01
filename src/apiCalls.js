@@ -1,11 +1,12 @@
 export const fetchLines = async () => {
   try {
-    const response = await fetch('https://restratpws.azurewebsites.net/api/lines/metro');
+    const response = await fetch('https://api-ratp.pierre-grimaud.fr/v4/lines/metros');
     if(!response.ok) {
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
     }
     const metroLines = await response.json();
+    console.log(metroLines)
     return metroLines
   }
   catch (e) {
@@ -15,7 +16,7 @@ export const fetchLines = async () => {
 
 export const fetchStations = async (lineId) => {
   try {
-    const response = await fetch(`https://restratpws.azurewebsites.net/api/stations/${lineId}`);
+    const response = await fetch(`https://api-ratp.pierre-grimaud.fr/v4/stations/metros/${lineId}`);
     if(!response.ok) {
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
@@ -30,7 +31,7 @@ export const fetchStations = async (lineId) => {
 
 export const fetchDirections = async (directionId) => {
   try {
-    const response = await fetch(`https://restratpws.azurewebsites.net/api/directions/${directionId}`);
+    const response = await fetch(`https://api-ratp.pierre-grimaud.fr/v4/destinations/metros/${directionId}`);
     if(!response.ok){
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
@@ -45,7 +46,7 @@ export const fetchDirections = async (directionId) => {
 
 export const fetchNextArrivals = async (lineId, stationId, directionId) => {
   try {
-    const response = await fetch(`https://restratpws.azurewebsites.net/api/Missions/${lineId}/from/${stationId}/way/${directionId}`);
+    const response = await fetch(`https://api-ratp.pierre-grimaud.fr/v4/schedules/metros/${lineId}/${stationId}/${directionId}`);
     if(!response.ok){
       console.log(response.status);
       throw new Error('The métro system is down at this time.')
