@@ -58,7 +58,7 @@ class App extends Component {
               Saved Trips
             </NavLink>
             </section>
-        </header>git 
+        </header>
         <section className='main-content'>
         <Route exact path='/' component={Welcome} />
         <Route path='/overview' component={Overview} />

@@ -1,10 +1,13 @@
 
 .restaurants-container {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  overflow: auto;
+  height: 100%;
 }
+
 
 .restaurant-overview {
   align-items: center;
@@ -13,11 +16,11 @@
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  height: 150px;
   justify-content: space-between;
   margin: 10px;
   padding: 5px;
   width: 33%;
+  height: auto;
 }
 
 .details-btn {
@@ -33,4 +36,15 @@
 .details-btn:hover {
   background-color: #0072BB;
   color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .restaurants-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .restaurant-overview {
+    width: 80%;
+  }
 }
