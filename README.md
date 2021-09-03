@@ -1,5 +1,7 @@
 # le Chipôtlé
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8babaab9-548f-4217-b597-78b734d61b0b/deploy-status)](https://app.netlify.com/sites/chipotlesinparis/deploys)
+
 ## Abstract
 
 Le Chipôtlé is an app that lets users read reviews about the three Chipotles in Paris. Users can also select a Chipotle to navigate to using the Paris Métro. 
